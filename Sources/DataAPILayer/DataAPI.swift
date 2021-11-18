@@ -7,15 +7,14 @@
 
 import Foundation
 
-
-final class DataAPI {
+public final class DataAPI {
     private let initialURL: String
     
-    init(initialURL: String) {
+    public init(initialURL: String) {
         self.initialURL = initialURL
     }
     
-    func getData<ReturnType: Codable>(
+    public func getData<ReturnType: Codable>(
         of type: ReturnType.Type,
         httpMethod: HTTPMethod,
         completion: @escaping (Result<ReturnType, Error>) -> ()
