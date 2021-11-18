@@ -12,11 +12,10 @@ public protocol DataModelType {
 }
 
 public final class DataModel: DataModelType {
-    private let url = "https://raw.githubusercontent.com/popina/test-ios/master/data.json"
-    private let api: DataAPI
+    private let api: DataAPIType
     
-    public init() {
-        api = DataAPI(initialURL: url)
+    public init(api: DataAPIType) {
+        self.api = api
     }
     
     public func makeDataModel(completion: @escaping (Result<Till, Error>) -> ()) {

@@ -7,7 +7,15 @@
 
 import Foundation
 
-public final class DataAPI {
+public protocol DataAPIType {
+    func getData<ReturnType: Codable>(
+        of type: ReturnType.Type,
+        httpMethod: HTTPMethod,
+        completion: @escaping (Result<ReturnType, Error>) -> ()
+    )
+}
+
+public final class DataAPI: DataAPIType {
     private let initialURL: String
     
     public init(initialURL: String) {
