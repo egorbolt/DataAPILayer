@@ -42,12 +42,12 @@ public final class DataAPI: DataAPIType {
                 }
                 
                 guard let data = data else {
-                    completion(.failure(DataAPIError.wrongURL))
+                    completion(.failure(DataAPIError.getDataError))
                     return
                 }
                 
                 guard let result = try? JSONDecoder().decode(type, from: data) else {
-                    completion(.failure(DataAPIError.wrongURL))
+                    completion(.failure(DataAPIError.wrongDecoding))
                     return
                 }
                 

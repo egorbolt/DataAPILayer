@@ -8,6 +8,7 @@
 public enum DataAPIError: Error {
     case getDataError
     case wrongURL
+    case wrongDecoding
 }
 
 extension DataAPIError: CustomStringConvertible {
@@ -18,6 +19,9 @@ extension DataAPIError: CustomStringConvertible {
             
         case .wrongURL:
             return "Check your initial URL."
+            
+        case .wrongDecoding:
+            return "Something went wrong with decoding."
         }
     }
 }
